@@ -1,0 +1,28 @@
+[debug] [2017-07-04T02:43:08.059Z] ----------------------------------------------------------------------
+[debug] [2017-07-04T02:43:08.062Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\Jalph\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-07-04T02:43:08.063Z] CLI Version:  3.9.1
+[debug] [2017-07-04T02:43:08.063Z] Platform:     win32
+[debug] [2017-07-04T02:43:08.063Z] Node Version: v6.11.0
+[debug] [2017-07-04T02:43:08.063Z] Time:         Mon Jul 03 2017 19:43:08 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-07-04T02:43:08.063Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-04T02:43:08.075Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-04T02:43:08.076Z] > authorizing via signed-in user
+[debug] [2017-07-04T02:43:08.078Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/cool-cats-efe88  
+ Mon Jul 03 2017 19:43:08 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-07-04T02:43:11.619Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-04T02:43:11.621Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/cool-cats-efe88/tokens  
+ Mon Jul 03 2017 19:43:11 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-07-04T02:43:12.640Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Jalph\desktop\Projects With Neal\coolcats'...
+[info] 
+[debug] [2017-07-04T02:43:12.648Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cool-cats-efe88  
+ Mon Jul 03 2017 19:43:12 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-07-04T02:43:13.160Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-04T02:43:13.161Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/32001327289/clients/_:getWebAppConfig  
+ Mon Jul 03 2017 19:43:13 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-07-04T02:43:13.876Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] +  hosting: Local server: http://localhost:5000
+
