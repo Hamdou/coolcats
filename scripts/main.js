@@ -63,6 +63,20 @@ function FriendlyChat() {
   };
 
   // Loads chat messages history and listens for upcoming ones.
+  // FriendlyChat.prototype.loadMessages = function() {
+  //   // Reference to the /messages/ database path.
+  //   this.messagesRef = this.database.ref('messages');
+  //   // Make sure we remove all previous listeners.
+  //   this.messagesRef.off();
+  //
+  //   // Loads the last 12 messages and listen for new ones.
+  //   var setMessage = function(data) {
+  //     var val = data.val();
+  //     this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
+  //   }.bind(this);
+  //   this.messagesRef.limitToLast(12).on('child_added', setMessage);
+  //   this.messagesRef.limitToLast(12).on('child_changed', setMessage);
+  // };
   FriendlyChat.prototype.loadMessages = function() {
     // Reference to the /messages/ database path.
     this.messagesRef = this.database.ref('messages');
@@ -71,13 +85,14 @@ function FriendlyChat() {
 
     // Loads the last 12 messages and listen for new ones.
     var setMessage = function(data) {
-      var val = data.val();
-      this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
+  var val = data.val();
+  console.log(val.imageUrl)
+      if(val.imageUrl){
+      this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);}
     }.bind(this);
     this.messagesRef.limitToLast(12).on('child_added', setMessage);
     this.messagesRef.limitToLast(12).on('child_changed', setMessage);
   };
-
 // Saves a new message on the Firebase DB.
 FriendlyChat.prototype.saveMessage = function(e) {
   e.preventDefault();
@@ -287,12 +302,23 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
     messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
   } else if (imageUri) { // If the message is an image.
     var image = document.createElement('img');
+      var image2 = document.createElement('img');
     image.addEventListener('load', function() {
       this.messageList.scrollTop = this.messageList.scrollHeight;
     }.bind(this));
     this.setImageUrl(imageUri, image);
+        this.setImageUrl('http://i.imgur.com/3FjPffJ.jpg', image2);
     messageElement.innerHTML = '';
     messageElement.appendChild(image);
+        messageElement.appendChild(image2);
+            image2.style.display = 'none';
+            image.addEventListener('click', function() {
+                        image.src= friendlyChat.LOADING_IMAGE_URL
+            setTimeout(function(){
+                image2.style.display = 'block';
+                image.style.display = 'none';
+             }, 3000);
+            }.bind(this));
   }
   // Show the card fading-in.
   setTimeout(function() {div.classList.add('visible')}, 1);
